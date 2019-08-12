@@ -13,3 +13,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+    def get(self):
+        self.dispatch()
