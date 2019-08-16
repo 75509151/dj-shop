@@ -17,12 +17,15 @@ from django.urls import path,include
 import xadmin
 from rest_framework import routers
 from users import views as uviews
+from goods import views as gviews
 
 router = routers.DefaultRouter()
 router.register(r"users", uviews.UserProfileViewSet)
 router.register(r"groups", uviews.GroupViewSet)
+router.register(r"categorys", gviews.CategoryView)
 
 urlpatterns = [
     path("", include(router.urls)),
     path('admin/', xadmin.site.urls),
+
 ]
