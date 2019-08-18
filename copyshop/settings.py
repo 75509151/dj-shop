@@ -30,6 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+MEDIA_URL = "/media/"
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,13 +83,25 @@ WSGI_APPLICATION = 'copyshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
 
+DATABASES = {     
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vueshop',                                                                                                                                                                                   
+        'USER': 'root',
+        'PASSWORD': 'howcute121',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        "OPTIONS": {"init_command": "SET default_storage_engine=INNODB;"}
+        # 后续第三方登陆的时候 引擎要求是innodb
+    }             
+}               
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

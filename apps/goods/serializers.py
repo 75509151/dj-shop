@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import GoodsCategory
+from .models import GoodsCategory, Banner
 
 class Category3Serializer(serializers.ModelSerializer):
 
@@ -22,4 +22,9 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GoodsCategory
+        fields = "__all__"
+
+class BannerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Banner
         fields = "__all__"
