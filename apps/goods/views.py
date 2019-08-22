@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import GoodsCategory, Banner
+from .models import GoodsCategory, Banner, Goods
 from rest_framework import viewsets, mixins
-from .serializers import CategorySerializer, BannerSerializer
+from .serializers import CategorySerializer, BannerSerializer, IndexGoodsSerializer, GoodsSerializer
 
 # Create your views here.
 
@@ -19,3 +19,14 @@ class BannerView(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = BannerSerializer
     paginator = None
 
+class IndexGoodsView(mixins.ListModelMixin, viewsets.GenericViewSet):
+    queryset = GoodsCategory.objects.filter(is_tab=True)
+    serializer_class = IndexGoodsSerializer
+    paginator = None
+
+class GoodsView(mixins.ListModelMixin, mixins.RetrieveModelMixin,
+                mixins.UpdateModelMixin, mixins.DestroyModelMixin,
+                mixins.CreateModelMixin,viewsets.GenericViewSet):
+
+    serializer_class = GoodsSerializer
+    queryset = Goods.objects.all()
