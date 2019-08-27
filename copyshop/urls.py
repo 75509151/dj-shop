@@ -26,7 +26,7 @@ router.register(r"users", uviews.UserProfileViewSet)
 router.register(r"groups", uviews.GroupViewSet)
 router.register(r"categorys", gviews.CategoryView)
 router.register(r"banners", gviews.BannerView)
-router.register(r"indexgoods", gviews.IndexGoodsView)
+router.register(r"indexgoods", gviews.IndexCategoryView)
 router.register(r"goods", gviews.GoodsView)
 
 
